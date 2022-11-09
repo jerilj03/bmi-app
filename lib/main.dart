@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:bmi/secondpage.dart';
+
 
 void main() => runApp(const MyApp());
 
@@ -214,6 +216,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                             Center(
                                 child: ElevatedButton(
                                     onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => SecondRoute(
+                                                    result: result,
+                                                )),
+                                        );
                                         setState(() {
                                             height = double.parse(
                                                 (double.parse(textHeight.text).toStringAsFixed(2)));
@@ -226,7 +235,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                                     },
                                     child: const Text(
                                         'Calculate',
-                                        style: TextStyle(fontSize: 25, fontFamily: 'arial', fontWeight: FontWeight.bold),
+                                        style: TextStyle(fontSize: 23, fontFamily: 'arial', fontWeight: FontWeight.bold),
                                     ),
                                     style: ElevatedButton.styleFrom(
                                         backgroundColor: Colors.blue[600],
@@ -239,65 +248,65 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                                 child: Text(''),
                             ),
 
-                            Container(
-                                child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                        Container(
-                                            child: const Padding(
-                                                padding: EdgeInsets.all(10.0),
-                                                child: Text('Your BMI is ',
-                                                    style: TextStyle(
-                                                        fontSize: 30,
-                                                        fontFamily: 'arial',
-                                                        color: Colors.white,
-                                                        fontWeight: FontWeight.bold)),
-                                            ),
-                                        ),
-                                        Container(
-                                            child: Text(bmi.toString(),
-                                                style: const TextStyle(
-                                                    fontSize: 30,
-                                                    fontFamily: 'arial',
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold)),
-                                        ),
-                                    ],
-                                ),
-                            ),
-                            Column(children: [
-                                if (result == 0)
-                                    ...[]
-                                else if (result < 18.5) ...[
-                                    const Text("Underweight",
-                                        style: TextStyle(
-                                            fontSize: 30,
-                                            fontFamily: 'arial',
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold)),
-                                ] else if (result > 18.5 && result < 24.9) ...[
-                                    const Text('Normal',
-                                        style: TextStyle(
-                                            fontSize: 30,
-                                            fontFamily: 'arial',
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold)),
-                                ] else if (result > 25.0 && result < 29.9) ...[
-                                    const Text('Overweight',
-                                        style: TextStyle(
-                                            fontSize: 30,
-                                            fontFamily: 'arial',
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold)),
-                                ] else if (result >= 30.0) ...[
-                                    const Text('Obese',
-                                        style: TextStyle(
-                                            fontSize: 30,
-                                            fontFamily: 'arial',
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold)),
-                                ]
-                            ]),
+                            // Container(
+                            //     child: Row(
+                            //         mainAxisAlignment: MainAxisAlignment.center,
+                            //         children: [
+                            //             Container(
+                            //                 child: const Padding(
+                            //                     padding: EdgeInsets.all(10.0),
+                            //                     child: Text('Your BMI is ',
+                            //                         style: TextStyle(
+                            //                             fontSize: 30,
+                            //                             fontFamily: 'arial',
+                            //                             color: Colors.white,
+                            //                             fontWeight: FontWeight.bold)),
+                            //                 ),
+                            //             ),
+                            //             Container(
+                            //                 child: Text(bmi.toString(),
+                            //                     style: const TextStyle(
+                            //                         fontSize: 30,
+                            //                         fontFamily: 'arial',
+                            //                         color: Colors.white,
+                            //                         fontWeight: FontWeight.bold)),
+                            //             ),
+                            //         ],
+                            //     ),
+                            // ),
+                            // Column(children: [
+                            //     if (result == 0)
+                            //         ...[]
+                            //     else if (result < 18.5) ...[
+                            //         const Text("Underweight",
+                            //             style: TextStyle(
+                            //                 fontSize: 30,
+                            //                 fontFamily: 'arial',
+                            //                 color: Colors.white,
+                            //                 fontWeight: FontWeight.bold)),
+                            //     ] else if (result > 18.5 && result < 24.9) ...[
+                            //         const Text('Normal',
+                            //             style: TextStyle(
+                            //                 fontSize: 30,
+                            //                 fontFamily: 'arial',
+                            //                 color: Colors.white,
+                            //                 fontWeight: FontWeight.bold)),
+                            //     ] else if (result > 25.0 && result < 29.9) ...[
+                            //         const Text('Overweight',
+                            //             style: TextStyle(
+                            //                 fontSize: 30,
+                            //                 fontFamily: 'arial',
+                            //                 color: Colors.white,
+                            //                 fontWeight: FontWeight.bold)),
+                            //     ] else if (result >= 30.0) ...[
+                            //         const Text('Obese',
+                            //             style: TextStyle(
+                            //                 fontSize: 30,
+                            //                 fontFamily: 'arial',
+                            //                 color: Colors.white,
+                            //                 fontWeight: FontWeight.bold)),
+                            //     ]
+                            // ]),
                         ],
                     ),
                 ),
